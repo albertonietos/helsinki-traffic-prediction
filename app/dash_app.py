@@ -9,6 +9,9 @@ from dash.html.P import P
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
+from datetime import date
+
+from utils import *
 
 app = dash.Dash(__name__, external_stylesheets = [dbc.themes.BOOTSTRAP])
 
@@ -26,8 +29,68 @@ prediction_card = dbc.Card([
     dbc.CardHeader('Traffic Prediction'),
     dbc.CardBody(
         [
-            html.P('Input: time & date'),
-            html.P('Output: cars on the road per direction'),
+            html.H5('Select date and time of travel'),
+            dbc.Label('Date:', html_for='date-input', width=1),
+            dcc.DatePickerSingle(
+                id='date-input',
+                min_date_allowed=date(2019, 1, 1),
+                max_date_allowed=date(2025, 1, 1),
+                initial_visible_month=date(2021, 11, 1),
+                display_format='D.M.Y',
+                first_day_of_week=1,
+                date=date(2021, 11, 1)
+            ),
+            html.Br(),
+            html.Br(),
+            html.P('Hour of the day:'),
+            dcc.Slider(
+                id='hour-input',
+                min=0,
+                max=23,
+                step=None,
+                marks={
+                    0: '0',
+                    1: '1',
+                    2: '2',
+                    3: '3',
+                    4: '4',
+                    5: '5',
+                    6: '6',
+                    7: '7',
+                    8: '8',
+                    9: '9',
+                    10: '10',
+                    11: '11',
+                    12: '12',
+                    13: '13',
+                    14: '14',
+                    15: '15',
+                    16: '16',
+                    17: '17',
+                    18: '18',
+                    19: '19',
+                    20: '20',
+                    21: '21',
+                    22: '22',
+                    23: '23'
+                },
+                value=16
+            ),
+            html.Br(),
+            dbc.Label("Direction:", html_for='direction-input', width=2),
+            dbc.Col(
+                dbc.RadioItems(
+                    id='direction-input',
+                    options=[
+                        {"label": "Towards city centre", "value": 0},
+                        {"label": "Towards outskirts", "value": 1}
+                    ],
+                ),
+                width=5,
+            ),
+            html.Hr(),
+            html.H5('Predicted number of cars on the road'),
+            html.P('Output of model:'),
             dcc.Graph(
                 id='example-graph',
                 figure=fig

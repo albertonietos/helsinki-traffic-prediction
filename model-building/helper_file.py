@@ -81,8 +81,8 @@ def plotModelResults(model, X_train, X_test, y_test, size, cv, plot_intervals=Fa
         scale = 1.96
         lower = prediction - (mae + scale * deviation)
         upper = prediction + (mae + scale * deviation)
-        
-        plt.plot(lower, "r--", label="upper bond / lower bond", alpha=0.5)
+
+        plt.plot(lower, "r--", label="upper bound / lower bound", alpha=0.5)
         plt.plot(upper, "r--", alpha=0.5)
         
         if plot_anomalies:

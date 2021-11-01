@@ -5,7 +5,7 @@ Feel free to use it and give feedback on possible future improvements.
 
 Here you can find a preview of the app.
 
-![demo](demo2.gif)
+![demo](demo.gif)
 
 ## A. TITLE: **HTML** (**H**elsinki **T**raffic monitoring with **M**achine **L**earning)
 

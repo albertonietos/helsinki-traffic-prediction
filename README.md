@@ -3,6 +3,10 @@
 The final product of our project has been deployed at [helsinki-traffic-monitoring.herokuapp.com](https://helsinki-traffic-monitoring.herokuapp.com/).
 Feel free to use it and give feedback on possible future improvements.
 
+Here you can find a preview of the app.
+
+![demo](demo2.gif)
+
 ## A. TITLE: **HTML** (**H**elsinki **T**raffic monitoring with **M**achine **L**earning)
 
 ## B. ELEVATOR PITCH
